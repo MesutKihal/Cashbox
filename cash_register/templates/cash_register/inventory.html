@@ -1,0 +1,84 @@
+{% extends "cash_register/base.html" %}
+{% block content %}
+	<div class="columns is-centered">
+		<div class="column is-half">
+			<div class="columns">
+				<div class="column is-two-thirds">
+					<input id="last-barcode" class="input mb-4 mr-4 ml-4"></input>
+				</div>
+				<div class="column is-one-third">
+					<button class="button has-text-white has-background-black">Search</button>
+				</div>
+			</div>
+			<table id="table" class="table is-hoverable">
+				<tr class="tr mg-medium">
+					<th class="th has-text-black has-background-warning">title</th>
+					<th class="th has-text-black has-background-warning">category</th>
+					<th class="th has-text-black has-background-warning">price</th>
+					<th class="th has-text-black has-background-warning">discount %</th>
+					<th class="th has-text-black has-background-warning">delete</th>
+				</tr>
+
+					{% for item in items %}
+						<tr class="tr">
+							<td>
+								<a onclick="getTitle('{{ item.name }}');getCategory('{{ item.category }}');getPrice('{{ item.price }}');">
+									{{ item.name }}
+								</a>
+							</td>
+							<td>
+								{{ item.category }}
+							</td>
+							<td>
+								{{ item.price }}
+							</td>
+							<td>0.0</td>
+							<td class="td">
+								<button class="button has-text-white has-background-danger">x</button>
+							</td>
+						<tr>
+					{% endfor %}		
+			</table>
+		</div>
+		<div class="column is-half">
+			<div class="columns">
+				<div class="column is-one-third">
+					<p class="content is-size-5 is-one-third" style="font-family: haleviteca;">Title:</p>			
+				</div>
+				<div class="column is-two-thirds">
+					<label id="title" class="content is-size-6 is-two-thirds" style="font-family: haleviteca;"></label>
+				</div>
+			</div>
+			<div class="columns">
+				<div class="column is-one-third">
+					<p class="content is-size-5 is-one-third" style="font-family: haleviteca;">Category:</p>			
+				</div>
+				<div class="column is-two-thirds">
+					<label id="category" class="content is-size-6 is-two-thirds" style="font-family: haleviteca;"></label>
+				</div>
+			</div>
+			<div class="columns">
+				<div class="column is-one-third">
+					<p class="content is-size-5 is-one-third" style="font-family: haleviteca;">Price:</p>			
+				</div>
+				<div class="column is-two-thirds">
+					<label id="price" class="content is-size-6 is-two-thirds" style="font-family: haleviteca;"></label>
+				</div>
+			</div>
+		</div>
+		<script>
+			function getTitle(title){
+				var x = document.getElementById("title");
+				x.innerHTML = title;
+			}
+			function getCategory(category){
+				var x = document.getElementById("category");
+				x.innerHTML = category;
+			}
+			function getPrice(price){
+				var x = document.getElementById("price");
+				x.innerHTML = price;
+			}
+		</script>
+	</div>
+{% endblock content %}

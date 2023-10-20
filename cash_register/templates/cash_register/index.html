@@ -1,0 +1,104 @@
+<DOCTYPE! html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Include the Bulma CSS framework for styling -->
+		<link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+		<!-- Page Title -->
+		<title>Cashbox</title>
+		
+	</head>
+	<body>
+		{% load static %}
+		<section class="hero mb-4 is-small"><!--is-small is-success mb-4-->
+			<div class="hero-body has-background-warning">
+				<div class="columns is-centered">
+					<div class="column is-one-quarter">
+						<figure class="image is-64x64">
+							<img class="is-centered" src="{% static 'img/logo.png' %}" onclick="window.location ='{% url 'Cashbox' %};">
+						</figure>
+					</div>
+					<div class="column is-two-quarters">
+						<p class="content has-text-black is-size-3 mt-4 mb-4">Cashbox<p>
+					</div>
+					<div class="column is-one-quarter">
+						<nav class="navbar" role="navigaion">
+							<div class="navbar-menu">
+								<div class="navbar-item is-hoverable">
+									<a class="button is-link is-focused has-background-black" href="{% url 'login' %}">Login</a>
+								</div>
+								<div class="navbar-item is-hoverable">
+									<a class="button is-link is-focused has-background-black" href="{% url 'signup' %}">Signup</a>
+								</div>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</div>			
+		</section>
+		<section>
+			<!--
+			<video autoplay="autoplay" controls="controls" preload="preload">
+				<source src="{% static 'vid/welcome.mp4' %}" type="video/mp4"></source>
+			</video>
+			-->
+		</section>
+		<footer class="section has-background-warning">
+				<div class="columns">
+					<div class="column is-two-thirds">
+						<ul>
+							<li class="columns mt-4">
+								<div class="column is-one-quarter">
+									<img class="is-rounded" src="{% static 'img/webicon.png' %}"  width="32" height="32">
+								</div>
+								<div class="column is-three-quarters">
+									<p class="has-text-black is-size-6 is-italic ">A web based store management system.</p>
+								</div>
+							</li>
+							<li class="columns mt-4">
+								<div class="column is-one-quarter">
+									<img class="is-rounded" src="{% static 'img/desktopicon.png' %}" width="32" height="32">
+								</div>
+								<div class="column is-three-quarters">
+									<p class="has-text-black is-size-6 is-italic ">It lets you manage your store without the use of any desktop software.</p>
+								</div>
+
+							</li>
+							<li class="columns">
+								<div class="column is-one-quarter">
+									<img class="is-rounded" src="{% static 'img/clickicon.png' %}" width="32" height="32">
+								</div>
+								<div class="column is-two-quarters">
+									<p class="has-text-black is-size-6 is-italic ">It gives you alot of functionallity as you can print bills, manage products, track sales and much more.</p>
+								</div>
+							</li>
+							<li class="columns">
+								<div class="column is-one-quarter">
+									<img class="is-rounded" src="{% static 'img/logicon.png' %}" width="32" height="32">
+								</div>
+								<div class="column is-three-quarters">
+									<p class="has-text-black is-size-6 is-italic ">Just create an account if you haven't already, login and there you go.</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="column is-one_third">
+						<ul>
+							<li class="has-text-black">About</li>
+							<li class="has-text-black">Privacy Policy</li>
+							<li class="has-text-black">Terms and Conditions</li>
+							<nav class="has-text-black">Contact</nav>
+							<a href="#" class="has-text-black is-link is-light dropdown-item">Instagram</a>
+							<a href="#" class="has-text-black is-link is-light dropdown-item">Github</a>
+							<a href="#" class="has-text-black is-link is-light dropdown-item">Mail</a>
+						</ul>
+					</div>
+				</div>
+		</footer>
+	</body>
+</html>
+

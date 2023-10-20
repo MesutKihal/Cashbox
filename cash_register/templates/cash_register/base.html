@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	{% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include the Bulma CSS framework for styling -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+	<!-- Page Title -->
+    <title>{{page_title}}</title>
+	<link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
+</head>
+<body>
+    <section class="hero is-small mb-4">
+        <div class="hero-body has-text-black has-background-warning">
+			<div class="columns is-centered">
+				<div class="column is-one-fifth">
+					<figure class="image is-64x64">
+						<img class="is-centered" src="{% static 'img/logo.png' %}">
+					</figure>
+				</div>
+				<div class="column is-three-fifths">
+					<p class="content is-size-3 mt-4 mb-4">{{page_title}}<p>
+				</div>
+				<div class="column is-one-fifth">
+					<figure class="image is-64x64 is-half">
+						<img class="is-rounded" src="https://www.unityhighschool.org/wp-content/uploads/2014/08/default-placeholder.png">
+						<p class="content has-text-black ml-2 mr-2 mt-2">@{{ request.user }}</p>
+					</figure>
+				</div>
+			</div>
+			<nav class="navbar">
+				<button onclick="location.href = '{% url 'home' %}'" class="button has-text-white has-background-black is-rounded ml-5">Cash register</button>
+				<button onclick="location.href = '{% url 'inventory' %}'" class="button has-text-white has-background-black is-rounded">Inventory</button>
+				<button onclick="location.href = '{% url 'statistics' %}'" class="button has-text-white has-background-black is-rounded">Statistics</button>
+				<button onclick="location.href = '{% url 'customers' %}'" class="button has-text-white has-background-black is-rounded">Customers</button>
+				<button onclick="location.href = '{% url 'suppliers' %}'" class="button has-text-white has-background-black is-rounded">Suppliers</button>
+				<button onclick="location.href = '{% url 'settings' %}'" class="button has-text-white has-background-black is-rounded">Settings</button>
+				<button href="#" class="button has-text-white has-background-black is-rounded mr-5" onclick="location.href = '{% url 'logout' %}'">Logout</button>
+			</nav>
+        </div>
+	<section class="section">
+	{% for message in messages %}
+		
+		{% if message.tags  == "error" %}
+			<article class="message is-danger">
+				<p class="message-body">
+					{{ message }}
+				</p>
+			</article>
+		{% elif message.tags == "success" %}
+			<article class="message is-success">
+				<p class="message-body">
+					{{ message }}
+				</p>
+			</article>
+		{% elif message.tags == "info" %}
+			<article class="message is-info">
+				<p class="message-body">
+					{{ message }}
+				</p>
+			</article>
+		{% endif %}
+	{% endfor %}
+		<div class="box">
+			{% block content %}
+			
+			{% endblock content %}
+		</div>
+	</section>
+</body>
+</html>

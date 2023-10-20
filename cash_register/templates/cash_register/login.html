@@ -1,0 +1,66 @@
+<DOCTYPE! html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Include the Bulma CSS framework for styling -->
+		<link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+		<!-- Page Title -->
+		<title>Login</title>
+
+	</head>
+	<body>
+		<section class="hero is-small is-success mb-4">
+			<div class="hero-body has-background-warning">
+				<div class="columns is-centered">
+					<h1 class="title is-1 has-text-black">Login</h1>
+				</div>
+			</div>
+		</section>
+		{% for message in messages %}
+			
+			{% if message.tags  == "error" %}
+				<article class="message is-danger">
+					<p class="message-body">
+						{{ message }}
+					</p>
+				</article>
+			{% elif message.tags == "success" %}
+				<article class="message is-success">
+					<p class="message-body">
+						{{ message }}
+					</p>
+				</article>
+			{% endif %}
+			
+		{% endfor %}
+		<div class="columns is-mobile is-centered">
+			<div class="column is-half">
+				<form class="box" method="post" action="{% url 'login' %} ">
+					{% csrf_token %}
+					<div class="columns is-centered">
+						<label class="content is-medium">Username</label>
+					</div>
+					<div class="columns is-centered">
+						{{form.username}}
+					</div>
+					<div class="columns is-centered">
+						<label class="content is-medium">Password</label>
+					</div>
+					<div class="columns is-centered">
+						{{form.password}}
+					</div>
+					<div class="columns is-centered">
+						<button class="button has-text-white has-background-black mt-4" type="submit">Login</button>
+					</div>
+				</form>
+				<div class="columns is-centered">
+					<a class="tag is-link is-light" href="{% url 'signup' %}">Don't have an account?</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
