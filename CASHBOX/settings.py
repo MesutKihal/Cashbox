@@ -48,7 +48,7 @@ MIDDLEWARE = [
 
 AUTH_USER_MODEL = "cash_register.User"
 
-ROOT_URLCONF = 'Cashbox.urls'
+ROOT_URLCONF = 'CASHBOX.urls'
 
 PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Cashbox.wsgi.application'
+WSGI_APPLICATION = 'CASHBOX.wsgi.application'
 
 
 # Database
