@@ -55,3 +55,4 @@ whichcraft==0.6.1
 whitenoise==6.7.0
 zope.event==5.0
 zope.interface==7.0.3
+gunicorn
