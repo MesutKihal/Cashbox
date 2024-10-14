@@ -1,0 +1,1 @@
+web: guncorn CASHBOX.wsgi:app
